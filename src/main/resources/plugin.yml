@@ -1,0 +1,40 @@
+name: PlayerMarket
+version: 1.0.0
+main: online.sterra.playermarket.PlayerMarket
+api-version: 1.19
+author: YourName
+description: Ein Spielermarkt Plugin für Minecraft
+
+commands:
+  pm:
+    description: Hauptbefehl für den PlayerMarket
+    usage: /<command> [sell|help|listings]
+    aliases: [playermarket, market, markt]
+
+permissions:
+  playermarket.use:
+    description: Erlaubt die Nutzung des PlayerMarket
+    default: true
+  
+  playermarket.sell:
+    description: Erlaubt das Verkaufen von Items
+    default: true
+  
+  playermarket.buy:
+    description: Erlaubt das Kaufen von Items
+    default: true
+  
+  playermarket.unlimited:
+    description: Keine Begrenzung für Angebote
+    default: op
+  
+  playermarket.admin:
+    description: Admin Berechtigung
+    default: op
+    children:
+      playermarket.use: true
+      playermarket.sell: true
+      playermarket.buy: true
+      playermarket.unlimited: true
+      playermarket.reload: true
+      playermarket.remove.others: true

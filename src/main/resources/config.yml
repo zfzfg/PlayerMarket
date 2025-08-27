@@ -1,0 +1,117 @@
+# PlayerMarket Konfiguration
+# Erstellt für Minecraft 1.19+
+
+# Maximale Anzahl von Angeboten pro Spieler
+# Spieler mit playermarket.unlimited Permission ignorieren dieses Limit
+max-listings-per-player: 10
+
+# Steuerrate für Verkäufe (0.05 = 5%)
+# Deaktiviert wenn auf 0 gesetzt
+tax-rate: 0.0
+
+# Maximale Zeit in Tagen wie lange ein Angebot aktiv bleibt
+# Nach Ablauf werden Items automatisch zurückgegeben
+# Setze auf -1 für unbegrenzte Zeit
+listing-expire-days: 7
+
+# Minimaler Verkaufspreis
+min-price: 0.01
+
+# Maximaler Verkaufspreis
+max-price: 1000000.0
+
+# Erlaubte Items
+# Wenn leer, sind alle Items erlaubt
+# Format: MATERIAL_NAME
+allowed-items: []
+  # - DIAMOND
+  # - IRON_INGOT
+  # - EMERALD
+
+# Verbotene Items
+# Diese Items können nicht verkauft werden
+blocked-items:
+  - BEDROCK
+  - BARRIER
+  - COMMAND_BLOCK
+  - STRUCTURE_BLOCK
+  - STRUCTURE_VOID
+  - DEBUG_STICK
+  - KNOWLEDGE_BOOK
+
+# GUI Einstellungen
+gui:
+  # Titel des Hauptmenüs
+  title: "§6§lSpielermarkt"
+  
+  # Sound beim Öffnen des Menüs
+  open-sound: BLOCK_NOTE_BLOCK_PLING
+  
+  # Sound beim Kauf
+  buy-sound: ENTITY_PLAYER_LEVELUP
+  
+  # Sound beim Verkauf
+  sell-sound: ENTITY_EXPERIENCE_ORB_PICKUP
+
+# Nachrichten
+messages:
+  prefix: "§6[PlayerMarket] §r"
+  
+  # Erfolg Nachrichten
+  item-listed: "§aItem erfolgreich zum Markt hinzugefügt!"
+  item-bought: "§aErfolgreich {amount}x {item} für €{price} gekauft!"
+  item-removed: "§aAngebot wurde entfernt und Items zurückgegeben!"
+  
+  # Fehler Nachrichten
+  no-permission: "§cDu hast keine Berechtigung für diesen Befehl!"
+  inventory-full: "§cDein Inventar ist voll!"
+  not-enough-money: "§cDu hast nicht genug Geld!"
+  invalid-amount: "§cUngültige Anzahl!"
+  invalid-price: "§cUngültiger Preis!"
+  item-not-allowed: "§cDieses Item kann nicht verkauft werden!"
+  max-listings-reached: "§cDu hast die maximale Anzahl an Angeboten erreicht!"
+  listing-not-found: "§cDieses Angebot existiert nicht mehr!"
+  cannot-buy-own: "§cDu kannst deine eigenen Items nicht kaufen!"
+  no-item-in-hand: "§cDu musst ein Item in der Hand halten!"
+  
+  # Info Nachrichten
+  listing-expired: "§eDein Angebot für {item} ist abgelaufen und wurde zurückgegeben!"
+  tax-info: "§7({tax}% Steuer abgezogen)"
+
+# Datenbank Einstellungen (für zukünftige Versionen)
+database:
+  # Typ: yaml, mysql, sqlite
+  type: yaml
+  
+  # MySQL Einstellungen (nur wenn type: mysql)
+  mysql:
+    host: localhost
+    port: 3306
+    database: playermarket
+    username: root
+    password: password
+    
+# Debug Modus
+# Zeigt zusätzliche Informationen in der Konsole
+debug: false
+
+# Auto-Save Interval in Minuten
+# Wie oft die Daten automatisch gespeichert werden
+auto-save-interval: 5
+
+# Wirtschafts-Plugin Integration
+# Unterstützte Plugins: Vault, EssentialsX
+economy:
+  enabled: false
+  plugin: Vault
+  
+# Logging
+logging:
+  # Logge alle Transaktionen
+  log-transactions: true
+  
+  # Logge alle neuen Angebote
+  log-new-listings: true
+  
+  # Log-Datei Pfad
+  log-file: "logs/playermarket.log"
